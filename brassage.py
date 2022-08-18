@@ -36,8 +36,9 @@ def Sauvegarder(cartes):
         cartes_str += "\n"
     f.write(cartes_str)
     f.close()
+    
 	
-
+print("1- Afficher l'état du jeu de carte \n2- Effectuer un brassage inter-coupé \n3- Sauvegarder l'état final dans un fichier .txt")
 menu = True
 while menu:
     menu = int(input("Choisissez votre option : "))
