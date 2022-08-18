@@ -16,13 +16,15 @@ def Affichage(liste_cartes):
 import random
 def Melange_Carte(liste_cartes):
     liste_carte_melange = []
-    return liste_carte_melange == random.sample(liste_cartes,52)
-    return(Affichage(liste_carte_melange))
+    liste_carte_melange = random.sample(liste_cartes,52)
+    return liste_carte_melange
+    
+    #return Affichage(liste_carte_melange)
 
 
 def Sauvegarder():
     fichier = open("cards.txt", "w")
-    fichier.write(str(Melange_Carte(liste_cartes)))
+    fichier.write("".join(Melange_Carte(liste_cartes)))
     fichier.close()
 	
    
@@ -37,7 +39,6 @@ while menu:
         Sauvegarder()
         print("\nFIN DE PROGRAMME")
         exit()
-    else:
-        menu == False
+    
     print("1- Afficher l'état du jeu de carte \n2- Effectuer un brassage inter-coupé \n3- Sauvegarder l'état final dans un fichier .txt")
 
