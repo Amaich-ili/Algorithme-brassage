@@ -36,7 +36,7 @@ def Sauvegarder(cartes):
         cartes_str += "\n"
     f.write(cartes_str)
     f.close()
-    
+
 	
 print("1- Afficher l'état du jeu de carte \n2- Effectuer un brassage inter-coupé \n3- Sauvegarder l'état final dans un fichier .txt")
 menu = True
@@ -48,7 +48,7 @@ while menu:
         listes_cartes = Melange_Carte(liste_cartes)
     elif menu == 3:
         Sauvegarder(listes_cartes)
-        print("\nFIN DE PROGRAMME")
+        print("\n FIN DE PROGRAMME \n")
         exit()
     
     print("1- Afficher l'état du jeu de carte \n2- Effectuer un brassage inter-coupé \n3- Sauvegarder l'état final dans un fichier .txt")
