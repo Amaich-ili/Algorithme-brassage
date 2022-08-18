@@ -1,4 +1,6 @@
 
+
+
 liste_cartes = ["A♥","2♥","3♥","4♥","5♥","6♥","7♥","8♥","9♥","10♥","J♥","Q♥","K♥",
                 "A♦","2♦","3♦","4♦","5♦","6♦","7♦","8♦","9♦","10♦","J♦","Q♦","K♦",
                 "A♣","2♣","♣","4♣","5♣","6♣","7♣","8♣","9♣","10♣","J♣","Q♣","K♣",
@@ -11,7 +13,8 @@ def Affichage(liste_cartes):
         print(" ".join(liste_cartes[i: i+13]))
 
 
-def Brasse_Carte(liste_cartes):
+
+def Melange_Carte(liste_cartes):
     liste1 = []
     liste2 = []
     moitier = len(liste_cartes) // 2
@@ -25,14 +28,18 @@ def Brasse_Carte(liste_cartes):
         liste_brasser.append(liste1[i])
         liste_brasser.append(liste2[i])
     return liste_brasser
-    
-    #return Affichage(liste_carte_melange)
 
 
-def Sauvegarder():
-    fichier = open("cards.txt", "w")
-    fichier.write("".join(Melange_Carte(liste_cartes)))
-    fichier.close()
+def Sauvegarder(cartes):
+    f = open("cards.txt", "w",encoding='utf-8', errors='ignore')
+    cartes_str =""
+    cartes_separee = []
+    for i in range(4):
+        for carte in liste_cartes[i*len(liste_cartes)//4:(i+1) * len(liste_cartes)//4]:
+            cartes_str += carte
+        cartes_str += "\n"
+    f.write(cartes_str)
+    f.close()
 	
    
 menu = True
@@ -41,9 +48,9 @@ while menu:
     if menu == 1:
         Affichage(liste_cartes)
     elif menu == 2:
-        Brasse_Carte(liste_cartes)
+        listes_cartes = Melange_Carte(liste_cartes)
     elif menu == 3:
-        Sauvegarder()
+        Sauvegarder(listes_cartes)
         print("\nFIN DE PROGRAMME")
         exit()
     
